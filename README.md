@@ -18,77 +18,55 @@ The application downloads audio from a YouTube video, transcribes the speech, ge
 - 🌐 Supports English and Hinglish
 
 ---
-
 ## Tech Stack
 
-→ Python
-→ OpenAI Whisper (local, free)
-→ Sarvam AI (Hindi/Hinglish transcription)
-→ LangChain LCEL (modern pipeline)
-→ Mistral AI (free API)
-→ ChromaDB (vector database for RAG)
-→ HuggingFace Embeddings (local, free)
-→ Streamlit (UI)
+- **Programming Language:** Python
+- **Frontend:** Streamlit
+- **Audio Processing:** FFmpeg, yt-dlp
+- **Speech Transcription:** OpenAI Whisper, Sarvam AI
+- **Large Language Model (LLM):** Mistral AI
+- **Embeddings:** HuggingFace Embeddings
+- **Vector Database:** ChromaDB
+- **RAG Framework:** LangChain (LCEL)
 
 ---
 
 ## Project Workflow
 
-                          
-
-                 YouTube URL / Local Video File
-                              │
-                              ▼
-                    Input Validation
-                              │
-                              ▼
-               Download / Extract Audio (FFmpeg)
-                              │
-                              ▼
-          Split Audio into Smaller Chunks (30-60 sec)
-                              │
-                              ▼
-       Speech-to-Text using Whisper / Sarvam AI API
-                              │
-                              ▼
-            Merge All Chunks into One Transcript
-                              │
-                              ▼
-         Generate Meeting Title using Mistral AI
-                              │
-                              ▼
-             Generate AI Summary of Transcript
-                              │
-                              ▼
-         Extract Important Information using LLM
-        ┌─────────────┬──────────────┬──────────────┐
-        │             │              │
-        ▼             ▼              ▼
-   Action Items   Key Decisions   Open Questions
-        │             │              │
-        └─────────────┴──────────────┘
-                      │
-                      ▼
-      Create Embeddings from Transcript Chunks
-                      │
-                      ▼
-      Store Embeddings in Chroma Vector Database
-                      │
-                      ▼
-             Build Retrieval-Augmented (RAG) Pipeline
-                      │
-                      ▼
-           User Asks Questions About the Meeting
-                      │
-                      ▼
-     Retrieve Relevant Transcript Chunks from Vector DB
-                      │
-                      ▼
-     Mistral AI Generates Context-Aware Final Answer
-                      │
-                      ▼
-             Display Results in Streamlit Dashboard
-
+YouTube URL
+      │
+      ▼
+Extract Audio
+      │
+      ▼
+Split into Chunks
+      │
+      ▼
+Transcription
+      │
+      ▼
+Generate Transcript
+      │
+      ▼
+Summary + Title
+      │
+      ▼
+Extract:
+ • Action Items
+ • Decisions
+ • Questions
+      │
+      ▼
+Create Embeddings
+      │
+      ▼
+Store in ChromaDB
+      │
+      ▼
+RAG Chat
+      │
+      ▼
+Answer User Questions
 ---
 
 ## Project Screenshots
