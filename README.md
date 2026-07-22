@@ -33,40 +33,55 @@ The application downloads audio from a YouTube video, transcribes the speech, ge
 
 ## Project Workflow
 
+```text
 YouTube URL
       │
       ▼
-Extract Audio
+Extract Audio (yt-dlp + FFmpeg)
       │
       ▼
-Split into Chunks
+Split Audio into Chunks
       │
       ▼
-Transcription
+Transcribe using Whisper / Sarvam AI
       │
       ▼
-Generate Transcript
+Merge All Chunks into Transcript
       │
       ▼
-Summary + Title
+Generate Meeting Title (Mistral AI)
+      │
+      ▼
+Generate AI Summary
       │
       ▼
 Extract:
  • Action Items
- • Decisions
- • Questions
+ • Key Decisions
+ • Open Questions
       │
       ▼
-Create Embeddings
+Create Text Chunks
+      │
+      ▼
+Generate Embeddings
+(HuggingFace)
       │
       ▼
 Store in ChromaDB
+(Vector Database)
       │
       ▼
-RAG Chat
+User asks a Question
       │
       ▼
-Answer User Questions
+Retrieve Relevant Chunks
+(RAG Pipeline)
+      │
+      ▼
+Generate Final Answer
+(Mistral AI)
+```
 ---
 
 ## Project Screenshots
